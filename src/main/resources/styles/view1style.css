@@ -1,0 +1,43 @@
+.base{
+    -fx-background-color: #35654d;
+    -fx-padding: 50px;
+    -fx-alignment: top-center;
+}
+
+.headingBox{
+    -fx-background-color: #D2996C;
+    -fx-alignment: top-center;
+    -fx-padding: 25px;
+    -fx-margin: 100px;
+}
+.titleText{
+    -fx-text-fill: white;
+    -fx-font-size: 30;
+}
+
+.playerAllSetupSection{
+    -fx-padding: 25px;
+    -fx-alignment: top-center;
+}
+
+.playerSetupSection{
+    -fx-background-color: #D2996C;
+    -fx-padding: 25px;
+}
+
+.startButton{
+    -fx-background-color: #D2996C;
+    -fx-padding: 25px;
+    -fx-font-size: large;
+    -fx-text-alignment: center;
+    -fx-text-fill: white;
+}
+
+.playerTitle{
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+}
+
+.pReady{
+    -fx-background-color: white;
+}

@@ -1,0 +1,81 @@
+.gameScreen{
+    -fx-background-color: #f7cac9;
+}
+
+.gamePlayArea{
+    -fx-padding:25px;
+    -fx-alignment: top-center;
+}
+
+.dealerBoxStyle{
+    -fx-text-alignment:center;
+}
+
+.playerTitle{
+    -fx-text-fill: #35281e;
+    -fx-font-size:15px;
+}
+
+.dealerTitle{
+    -fx-text-fill: #35281e;
+    -fx-font-size:15px;
+}
+
+.gamePlayText{
+    -fx-text-fill:#35281e;
+}
+
+.deckStyle{
+    /*-fx-background-color: #91a8d1;*/
+    /*-fx-border-color: #35281e;*/
+    -fx-width: 100px;
+    -fx-height: 129px;
+    -fx-opacity:1;
+    -fx-text-fill: #35281e;
+}
+
+.deckDeck{
+    -fx-background-color: #91a8d1;
+    -fx-width: 100px;
+    -fx-height: 129px;
+    -fx-opacity:1;
+    -fx-text-fill: #35281e;
+}
+
+/*Button{*/
+/*    -fx-background-color: white;*/
+/*    -fx-text-fill: #35281e;*/
+/*}*/
+
+.startButtonStyle{
+    -fx-font-size: 15px;
+    -fx-background-color: white;
+    -fx-text-fill: #35281e;
+}
+.betsButton{
+    -fx-background-color: white;
+    -fx-text-fill: #35281e;
+}
+.playB{
+    -fx-background-color: white;
+    -fx-text-fill: #35281e;
+}
+.foldB{
+    -fx-background-color: white;
+    -fx-text-fill: #35281e;
+}
+.dealB{
+    -fx-font-size: 15px;
+    -fx-background-color: white;
+    -fx-text-fill: #35281e;
+}
+.nextRoundB{
+    -fx-font-size: 15px;
+    -fx-background-color: white;
+    -fx-text-fill: #35281e;
+}
+
+.menu{
+    -fx-background-color: white;
+}
+
