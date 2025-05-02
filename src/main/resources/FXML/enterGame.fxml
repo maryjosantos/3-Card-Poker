@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:id = "root" styleClass="base" fx:controller = "Controller">
+    <HBox fx:id = "containHeader" styleClass = "headingBox">
+        <Label fx:id = "gameHeading" styleClass = "titleText" text = "Welcome to Three Card Poker!"/>
+    </HBox>
+
+    <Region fx:id = "multiUseSpace" minHeight="20"/>
+
+    <HBox fx:id = "containPlayerSettings" styleClass = "playerAllSetupSection">
+        <VBox fx:id = "player1Setup" styleClass = "playerSetupSection">
+            <Label fx:id = "player1Title" styleClass = "playerTitle" text="Player 1"/>
+            <Region minHeight = "10"/>
+            <Button fx:id = "p1SaveName" styleClass = "pReady" text = "Ready to Play!" onAction="#playerOneInitialize"/>
+        </VBox>
+
+        <Region fx:id = "multiUseSpace1" minWidth = "200"/>
+
+        <VBox fx:id = "player2Setup" styleClass = "playerSetupSection">
+            <Label fx:id = "player2Title" styleClass = "playerTitle" text="Player 2"/>
+            <Region minHeight = "10"/>
+            <Button fx:id = "p2SaveName" styleClass = "pReady" text = "Ready to Play!" onAction="#playerTwoInitialize"/>
+        </VBox>
+    </HBox>
+
+    <Region fx:id = "multiUseSpace2" minHeight = "50"/>
+
+    <Button fx:id = "startGame" text="Enter Game!" minWidth = "200" styleClass = "startButton" disable ="true" onAction="#beginGame"/>
+    <Label fx:id = "startSpace" minHeight="2"/>
+    <Button fx:id = "exitGame" text="Exit" minWidth = "200" styleClass = "startButton" onAction="#exitGame"/>
+</VBox>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:id = "root3" styleClass = "exitPageStyle" fx:controller = "Controller">
+    <Button fx:id = "quitButton" text="Quit" onAction="#exitGameOption"/>
+<!--    <Button fx:id = "returnToGameButton" text="Continue" onAction="#returnToGame"/>-->
+    <Region minHeight = "15"/>
+    <Label maxWidth = "300" wrapText="true" text="To return to the game, close this window like you would a regular window."/>
+</VBox>

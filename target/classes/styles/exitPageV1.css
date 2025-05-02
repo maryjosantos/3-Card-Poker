@@ -1,0 +1,16 @@
+.exitPageStyle{
+    -fx-background-color: #35654d;
+    -fx-alignment: center;
+}
+
+Button{
+    -fx-background-color: #D2996C;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+}
+
+Label{
+    -fx-text-fill:white;
+    -fx-font-size:15px;
+    -fx-text-alignment: center;
+}

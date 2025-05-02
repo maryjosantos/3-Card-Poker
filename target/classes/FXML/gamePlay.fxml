@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id = "root2" styleClass="gameScreen" fx:controller = "Controller">
+    <top>
+        <MenuBar fx:id = "menuBar" styleClass = "menu">
+            <Menu fx:id = "options" styleClass ="menu" text="Options">
+                <MenuItem fx:id = "exitMenu" styleClass = "menu" text="Exit" onAction = "#promptExit"/>
+                <MenuItem fx:id = "freshStart" styleClass = "menu" text="Fresh Start" onAction = "#setFreshStart"/>
+                <CheckMenuItem fx:id = "newLook" styleClass = "menu" text="New Look" onAction="#setNewLook"/>
+            </Menu>
+        </MenuBar>
+    </top>
+    <center>
+        <VBox alignment="CENTER">
+            <Region minHeight="10"/>
+            <Button fx:id = "startGameButton" styleClass = "startButtonStyle" onAction = "#showGamePlay" text="Start New Game"/>
+            <HBox fx:id = "gamePlayArea" styleClass ="mainGamePlay" visible="false">
+                <Region minWidth="10"/>
+                <VBox fx:id = "playerOnePlay" minWidth = "200" styleClass="playerBoxStyle">
+                    <Label fx:id = "pOneName" styleClass = "playerTitle" text="Player 1"/>
+                    <HBox fx:id = "player1Hand">
+                        <Button fx:id = "p1Card1" disable = "true" visible = "false" styleClass="deckStyle" minWidth="60" minHeight="87"/>
+                        <Label fx:id = "p1space1" minWidth = "5"/>
+                        <Button fx:id = "p1Card2" disable = "true" visible = "false" styleClass="deckStyle" minWidth="60" minHeight="87"/>
+                        <Label fx:id = "p1space2" minWidth = "5"/>
+                        <Button fx:id = "p1Card3" disable = "true" visible = "false" styleClass="deckStyle" minWidth="60" minHeight="87"/>
+                    </HBox>
+                    <Region minHeight = "5"/>
+                    <Label fx:id = "p1Ante" styleClass = "gamePlayText" text="Ante Bet: "/>
+                    <Label fx:id = "p1PlayWager" wrapText="true" styleClass = "gamePlayText" text="Play Bet: "/>
+                    <Label fx:id = "p1PairPlus" styleClass = "gamePlayText" text="PairPlus Bet: "/>
+                    <Label fx:id = "p1Winnings" styleClass = "gamePlayText" text="Total Net Winnings: 0"/>
+
+                    <Region minHeight="10"/>
+                    <TextField fx:id = "p1PlaceAnte" promptText="Place Ante Bet Here"/>
+                    <Region minHeight="5"/>
+                    <TextField fx:id = "p1PlacePairPlus" promptText = "Place Pair Plus Bet Here"/>
+                    <Region minHeight="10"/>
+                    <Button fx:id = "p1PlaceBets" text="Place Bets" onAction="#setPlayerOneBets" styleClass="betsButton"/>
+                    <Region minHeight="5"/>
+                    <Label fx:id = "p1BetRule" styleClass = "gamePlayText" wrapText="true" minHeight="175">
+                        You must place an Ante bet of 5 to 25 dollars.
+                        Enter an integer value in that range in the corresponding text field.
+                        If your Ante is being carried over from the previous round, you do not have the option
+                        to enter a new Ante.
+                        A Pair Plus bet is optional. If you would like to place a Pair Plus bet, enter an integer
+                        between 5 and 25 dollars in the corresponding text field. Otherwise, leave it blank.
+                        You will not be able to bet until these conditions are met. </Label>
+
+                    <VBox fx:id = "player1PlayFoldBox" visible="false">
+                        <HBox fx:id = "player1PlayFold">
+                            <Button fx:id = "p1Play" text="Play" onAction="#p1PlayAction" styleClass="playB"/>
+                            <Region minWidth="10"/>
+                            <Button fx:id = "p1Fold" text="Fold" onAction="#p1FoldAction" styleClass="foldB"/>
+                        </HBox>
+                        <Label fx:id = "p1PlayLabel" wrapText="true" minHeight = "80" styleClass="gamePlayText">
+                            Set a Play bet equal to your Ante Wager. Otherwise, fold your Ante bet and
+                            Pair Plus bet if you set one.</Label>
+                    </VBox>
+
+                </VBox>
+
+                <Region fx:id = "space1" minWidth = "10"/>
+
+                <VBox fx:id = "dealerPlay" minWidth = "250" styleClass="dealerBoxStyle">
+                    <Label fx:id = "dealerName" text = "Dealer"  styleClass = "dealerTitle"/>
+                    <HBox fx:id = "dealerWinningsAndDeck" alignment = "CENTER">
+                        <Label fx:id = "dealerWinnings" text="Winnings: 0" minWidth = "50" styleClass="gamePlayText"/>
+                        <Label fx:id = "deckSpace" minWidth="10" />
+                        <Button fx:id = "deckIcon" disable="true" styleClass="deckDeck" text="Deck" minWidth="60" minHeight="87"/>
+                    </HBox>
+                    <Label fx:id = "dealerHandSpace" minHeight="3"/>
+                    <HBox fx:id = "dealerHand">
+                        <Button fx:id = "dealerCard1" disable="true" visible = "false" styleClass="deckStyle" minWidth="60" minHeight="87"/>
+                        <Label fx:id = "dealerSpace1" minWidth = "5"/>
+                        <Button fx:id = "dealerCard2" disable="true" visible = "false" styleClass="deckStyle" minWidth="60" minHeight="87"/>
+                        <Label fx:id = "dealerSpace2" minWidth = "5"/>
+                        <Button fx:id = "dealerCard3" disable="true" visible = "false" styleClass="deckStyle" minWidth="60" minHeight="87"/>
+                    </HBox>
+                    <Button fx:id = "readyToDeal" visible="false" text = "Deal Cards" onAction="#showCards" styleClass="dealB"/>
+                    <Button fx:id = "nextRound" visible="false" text = "Next Round" onAction = "#selectNextRound" styleClass="nextRoundB"/>
+                </VBox>
+
+                <Region fx:id = "space2" minWidth = "10"/>
+
+                <VBox fx:id = "playerTwoPlay" minWidth = "200" styleClass="playerBoxStyle">
+                    <Label fx:id = "pTwoName" styleClass = "playerTitle" text="Player 2"/>
+                    <HBox fx:id = "player2Hand">
+                        <Button fx:id = "p2Card1" disable="true" visible = "false" styleClass="deckStyle" minWidth="60" minHeight="87"/>
+                        <Label fx:id = "p2space1" minWidth = "5"/>
+                        <Button fx:id = "p2Card2" disable="true" visible = "false" styleClass="deckStyle" minWidth="60" minHeight="87"/>
+                        <Label fx:id = "p2space2" minWidth = "5"/>
+                        <Button fx:id = "p2Card3" disable="true" visible = "false" styleClass="deckStyle" minWidth="60" minHeight="87"/>
+                    </HBox>
+                    <Region minHeight = "5"/>
+                    <Label fx:id = "p2Ante" styleClass = "gamePlayText" text="Ante Bet: "/>
+                    <Label fx:id = "p2PlayWager" wrapText="true" styleClass = "gamePlayText" text="Play Bet: "/>
+                    <Label fx:id = "p2PairPlus" styleClass = "gamePlayText" text="PairPlus Bet: "/>
+                    <Label fx:id = "p2Winnings" styleClass = "gamePlayText" text="Total Net Winnings: 0"/>
+
+                    <Region minHeight="10"/>
+                    <TextField fx:id = "p2PlaceAnte" promptText="Place Ante Bet Here"/>
+                    <Region minHeight="5"/>
+                    <TextField fx:id = "p2PlacePairPlus" promptText = "Place Pair Plus Bet Here"/>
+                    <Region minHeight="10"/>
+                    <Button fx:id = "p2PlaceBets" text="Place Bets" onAction="#setPlayerTwoBets" styleClass="betsButton"/>
+                    <Region minHeight="5"/>
+                    <Label fx:id = "p2BetRule" styleClass = "gamePlayText" wrapText="true" minHeight="175">
+                        You must place an Ante bet of 5 to 25 dollars.
+                        Enter an integer value in that range in the corresponding text field.
+                        If your Ante is being carried over from the previous round, you do not have the option
+                        to enter a new Ante.
+                        A Pair Plus bet is optional. If you would like to place a Pair Plus bet, enter an integer
+                        between 5 and 25 dollars in the corresponding text field. Otherwise, leave it blank.
+                        You will not be able to bet until these conditions are met.
+                    </Label>
+
+                    <VBox fx:id = "player2PlayFoldBox" visible="false">
+                        <HBox fx:id = "player2PlayFold">
+                            <Button fx:id = "p2Play" text="Play" onAction= "#p2PlayAction" styleClass="playB"/>
+                            <Region minWidth="10"/>
+                            <Button fx:id = "p2Fold" text="Fold" onAction= "#p2FoldAction" styleClass="foldB"/>
+                        </HBox>
+                        <Label fx:id = "p2PlayLabel" wrapText="true" minHeight = "80" styleClass="gamePlayText">
+                            Set a Play bet equal to your Ante Wager. Otherwise, fold your Ante bet and
+                            Pair Plus bet if you set one.</Label>
+                    </VBox>
+
+                </VBox>
+                <Region minWidth="10"/>
+                <ListView fx:id = "commentary" minWidth="250" minHeight="500"/>
+            </HBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
